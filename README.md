@@ -1,1 +1,1 @@
-# opiskelija
+# opiskelijan lisäys, muokkaus tai tuhoaminen
