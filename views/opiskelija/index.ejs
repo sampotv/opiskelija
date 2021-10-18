@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Opintorekisteri</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style> 
+body {
+ 
+  background-color: #111aaa;
+}
+</style>
 </head>
-<body class="container" style="margin-top: 50px;">
+<body class="container" style="margin-top: 100px;">
 
     <% if (messages.success) { %>
     <div class="alert alert-success" role="alert"><%- messages.success %></div>
@@ -20,7 +27,9 @@
         <div class="card-header">
             <ul class="nav nav-pills w-100">
                 <li class="nav-pill active">
+<div class="w3-container w3-red">
                     <a class="nav-link">Opiskelijan lisäys</a>
+</div>
                 </li>
                 <li class="nav-pill ml-auto">
                     <a class="nav-link active" href="/opiskelija/add">Lisää opiskelija</a>
@@ -28,34 +37,49 @@
             </ul>
         </div>
     <div class="card-body">
-        
+      <style>  
+div {
+  border-style: solid;
+  border-width: thick;
+}
+</style>
         <% if(data.length) { %>
-        <table class="table">
+
+	<table class="w3-table w3-striped w3-border">
+
+
             <thead>
                 <tr>
+
                     <th scope="col">#</th>
                     <th scope="col">Etunimi</th>
                     <th scope="col">Sukunimi</th>
                     <th scope="col">Osoite</th>
                     <th scope="col">Luokkatunnus</th>
-                    <th width="200px">Action</th>
+                    <th width="130px">Action</th>
                 </tr>
             </thead>
             <tbody>
+  <div class="w3-text-blue">
             <% for(var i = 0; i< data.length; i++) { %>
                 <tr>
+
                     <th scope="row"><%= (i+1) %></th>
-                    <td><%= data[i].etunimi%></td>
-                    <td><%= data[i].sukunimi%></td>
-                    <td><%= data[i].osoite%></td>
-                    <td><%= data[i].luokkatunnus%></td>
+                    <td class="w3-text-red"><%= data[i].etunimi%></td>
+                    <td class="w3-text-yellow"><%= data[i].sukunimi%></td>
+                    <td class="w3-text-grey"><%= data[i].osoite%></td>
+                    <td class="w3-text-blue"><%= data[i].luokkatunnus%></td>
+
                     <td>
-                        <a class="btn btn-success edit" href="../opiskelija/edit/<%=data[i].idOpiskelija%>">Edit</a>                       
-                        <a class="btn btn-danger delete" onclick="return alert('Oletko varma?')" href="../opiskelija/delete/<%=data[i].idOpiskelija%>">Delete</a>                       
+                        <a class="btn btn-primary edit" href="../opiskelija/edit/<%=data[i].idOpiskelija%>">Edit</a>                       
+                        <a class="btn btn-warning delete" onclick="return alert('Oletko varma?')" href="../opiskelija/delete/<%=data[i].idOpiskelija%>">Delete</a>                       
                     </td>
                 </tr>
+
             <% } %>
+</div>
             </tbody>
+
         </table>
         <% } %>
         
